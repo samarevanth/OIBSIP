@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Registration Form</title>
+        <script>
+        function validate()
+        {
+            uname=document.f1.un.value;
+            if(uname=="" || uname=="null")
+            {
+                alert("Please Provide Valid Format");
+                return false;
+            }
+            p1=document.f1.pwd1.value;
+            p2=document.f1.pwd2.value;
+            if(p1=="")
+            {
+                alert("Please Provide Valid Format");
+                return false;
+            }
+            if(p1.length<6)
+            {
+                alert("Password Must be 6 characters");
+                return false;
+            }
+            if(p1==p2)
+            {
+                ;
+            }       
+            else
+            {
+                alert("Password and conform Password must be same");
+                return false;
+            }
+            d1=new Date(document.f1.dob.value);
+            curdate=new Date();
+            if(d1>curdate)
+            {
+                alert("Please Enter Valide DOB");
+                return false;
+            }
+            var m1=document.f1.mail.value;
+            var atposition=m1.indexOf("@");
+            var dotposition=m1.lastIndexOf(".");
+            if(atposition<1 || dotposition<atposition+2 || dotpositon+2>m1.length)
+            {
+                alert("Please Provide Valid Format");
+                return false;
+            }   
+        }
+        </script>
+    </head>
+    <body bgcolor="fef8ff">
+        <form name="f1" method="get" onsubmit="return validate()" action="succ.html">
+            <table align="center" border="1" >
+                <caption >Registration-Form</caption>
+                <tr>
+                    <td>User Name:</td>
+                    <td><input type="text" name="un" pattern="[a-zA-Z0-9]{6,}"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="pwd1"></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" name="pwd2"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td><input type="radio" name="gender">Male
+                    <input type="radio" name="gender">Female
+                    <input type="radio" name="gender">Other</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td><input type="date" name="dob"></td>
+                </tr>
+                <tr>
+                    <td>E-Mail-Id:</td>
+                    <td><input type="text" name="mail" required></td>
+                </tr>
+                <tr>
+                    <td>Mobile-Number:</td>
+                    <td><input type="number" name="t1" pattern"[0-9]{10}"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><textarea rows="4" cols="50"></textarea></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="Registration"></td>
+                    <td><input type="reset" name="RESET"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
